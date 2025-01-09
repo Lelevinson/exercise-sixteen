@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>test</title>
+		<link rel="shortcut icon" href="#" />
+		<style>
+			#grandparent {
+				width: 100%;
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				padding: 1em;
+			}
+
+			#first-parent {
+				width: 100%;
+				height: 33%;
+				margin-bottom: 1em;
+				background-color: greenyellow;
+			}
+
+			#second-parent {
+				display: flex;
+				gap: 1em;
+				width: 100%;
+				height: 33%;
+				margin-bottom: 1em;
+			}
+
+			#second-parent .second-child {
+				flex: 1;
+				height: 100%;
+				background-color: rgb(0, 196, 210);
+			}
+
+			#third-parent {
+				display: flex;
+				width: 100%;
+				height: 33%;
+				gap: 1em;
+			}
+
+			#third-parent .third-child {
+				flex: 1;
+				height: 100%;
+				background-color: gainsboro;
+			}
+
+			@media screen and (max-width: 480px) {
+				#first-parent {
+					height: 20%;
+				}
+				#second-parent {
+					height: 60%;
+					gap: 0.3em;
+					flex-direction: column;
+				}
+				#second-parent .second-child {
+					flex: 1;
+					width: 100%;
+					height: 20%;
+					background-color: rgb(0, 196, 210);
+				}
+				#third-parent {
+					display: grid;
+					grid-template-columns: repeat(
+						2,
+						1fr
+					); /* Create 2 columns of equal width */
+					grid-template-rows: repeat(
+						2,
+						1fr
+					); /* Create 2 rows of equal height */
+					height: 20%;
+					gap: 0.3em 1em;
+				}
+				#third-parent .third-child {
+					height: auto; /* Let the height be determined by the grid */
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="grandparent">
+			<div id="first-parent"></div>
+			<div id="second-parent">
+				<div class="second-child"></div>
+				<div class="second-child"></div>
+				<div class="second-child"></div>
+			</div>
+			<div id="third-parent">
+				<div class="third-child"></div>
+				<div class="third-child"></div>
+				<div class="third-child"></div>
+				<div class="third-child"></div>
+			</div>
+		</div>
+	</body>
+</html>
